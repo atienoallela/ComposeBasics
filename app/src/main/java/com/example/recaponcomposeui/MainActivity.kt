@@ -28,9 +28,15 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
@@ -201,11 +207,74 @@ fun LandingPageScreen(modifier: Modifier = Modifier){
         Spacer(Modifier.height(20.dp))
     }
 }
+@Composable
+fun MyNavigation(modifier: Modifier = Modifier){
+    NavigationBar(modifier = modifier,
+        containerColor = MaterialTheme.colorScheme.surfaceVariant
+        ) {
+        NavigationBarItem(
+            selected = true,
+            onClick = { /*TODO*/ },
+            label = {
+                    Text(stringResource(id = R.string.home))
+            },
+            icon = {
+                Icon(
+                    imageVector = Icons.Default.Home,
+                    contentDescription = null )
+            })
+        NavigationBarItem(
+            selected = false ,
+            onClick = { /*TODO*/ },
+            label = {
+                    Text(stringResource(id = R.string.favorites))
+            },
+            icon = {
+                Icon(
+                    imageVector = Icons.Default.Favorite,
+                    contentDescription =null )
+            })
+        NavigationBarItem(
+            selected = false,
+            onClick = { /*TODO*/ },
+            label = {
+                    Text(text = "Cart")
+            },
+            icon = {
+                Icon(
+                    imageVector = Icons.Default.ShoppingCart,
+                contentDescription = null )
+            })
+    }
+}
+@Composable
+fun AppPotrait(){
+    RecapOnComposeUITheme {
+        Scaffold(bottomBar = { MyNavigation()}) {
+            padding -> LandingPageScreen(Modifier.padding(padding))
+
+        }
+    }
+}
+@Preview(showBackground = true)
+@Composable
+fun RecapPreview() {
+    RecapOnComposeUITheme {
+        AppPotrait()
+    }
+}
 @Preview(showBackground = true)
 @Composable
 fun ProfilePreview() {
     RecapOnComposeUITheme {
         searchit()
+    }
+}
+@Preview(showBackground = true)
+@Composable
+fun BottomNav() {
+    RecapOnComposeUITheme {
+        MyNavigation()
     }
 }
 @Preview(showBackground = true)
