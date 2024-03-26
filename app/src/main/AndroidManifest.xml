@@ -13,6 +13,16 @@
         android:theme="@style/Theme.RecapOnComposeUI"
         tools:targetApi="31">
         <activity
+            android:name=".Wawili"
+            android:exported="false"
+            android:label="@string/title_activity_wawili"
+            android:theme="@style/Theme.RecapOnComposeUI" />
+        <activity
+            android:name=".ScreenTwo"
+            android:exported="false"
+            android:label="@string/title_activity_screen_two"
+            android:theme="@style/Theme.RecapOnComposeUI" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"

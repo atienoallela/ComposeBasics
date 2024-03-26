@@ -1,5 +1,6 @@
 package com.example.recaponcomposeui
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -46,6 +47,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -62,7 +64,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                   LandingPageScreen()
+                   AppPotrait()
                 }
             }
         }
@@ -188,7 +190,7 @@ fun HomePage(@StringRes title: Int,modifier: Modifier = Modifier,content:@Compos
             style = MaterialTheme.typography.titleMedium,
             modifier = Modifier
                 .padding(horizontal = 20.dp)
-                .paddingFromBaseline(top = 40.dp, bottom = 20.dp)
+                .paddingFromBaseline(top = 40.dp , bottom = 20.dp)
         )
         content()
     }
@@ -209,6 +211,7 @@ fun LandingPageScreen(modifier: Modifier = Modifier){
 }
 @Composable
 fun MyNavigation(modifier: Modifier = Modifier){
+    val context = LocalContext.current
     NavigationBar(modifier = modifier,
         containerColor = MaterialTheme.colorScheme.surfaceVariant
         ) {
@@ -236,7 +239,9 @@ fun MyNavigation(modifier: Modifier = Modifier){
             })
         NavigationBarItem(
             selected = false,
-            onClick = { /*TODO*/ },
+            onClick = {
+                context.startActivity(Intent(context,Wawili::class.java))
+            },
             label = {
                     Text(text = "Cart")
             },

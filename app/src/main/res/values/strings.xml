@@ -9,4 +9,6 @@
     <string name="daaaaaa">More about Me</string>
     <string name="home">Home</string>
     <string name="favorites">Favorites</string>
+    <string name="title_activity_screen_two">ScreenTwo</string>
+    <string name="title_activity_wawili">Wawili</string>
 </resources>
